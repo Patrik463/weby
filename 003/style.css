@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+    color: #ffffff; /* Bílá barva textu */
+}
+
+/* Zajištění, že text a navigace budou vidět NAD pozadím */
+nav, h1, p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Odkazy v navigaci */
+nav a {
+    color: #ffffff;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+/* Původní nastavení masky pro ztmavnutí směrem ke krajům */
+.pattern-background {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #19191e;
+    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 75%);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.pattern-background::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    z-index: -1; /* Posunul se DO POZADÍ, aby nečernil text */
+    transform: rotate(190deg);
+    transform-origin: center;
+    background-color: #19191e;
+    opacity: 1;
+    background-image: conic-gradient(from 60deg at 56.25% calc(425% / 6), transparent 0deg, transparent 0.5deg, #ee004f 0.5deg, #ee004f 119.5deg, transparent 119.5deg, transparent 120deg),
+    conic-gradient(from 60deg at 56.25% calc(425% / 6), transparent 0deg, transparent 0.5deg, #ee004f 0.5deg, #ee004f 119.5deg, transparent 119.5deg, transparent 120deg),
+    conic-gradient(from 180deg at 43.75% calc(425% / 6), transparent 0deg, transparent 0.5deg, #ee004f 0.5deg, #ee004f 119.5deg, transparent 119.5deg, transparent 120deg),
+    conic-gradient(from 180deg at 43.75% calc(425% / 6), transparent 0deg, transparent 0.5deg, #ee004f 0.5deg, #ee004f 119.5deg, transparent 119.5deg, transparent 120deg),
+    conic-gradient(from -60deg at 50% calc(175% / 12), transparent 0deg, transparent 0.5deg, #ee004f 0.5deg, #ee004f 119.5deg, transparent 119.5deg, transparent 120deg),
+    conic-gradient(from -60deg at 50% calc(175% / 12), transparent 0deg, transparent 0.5deg, #ee004f 0.5deg, #ee004f 119.5deg, transparent 119.5deg, transparent 120deg);
+    background-position: 0 0, 8px 14px, 0 0, 8px 14px, 8px 0, 0 14px;
+    background-size: 16px 28px;
+}
